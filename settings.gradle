@@ -1,0 +1,2 @@
+rootProject.name = "MCS_LAB_Kuuf_Project"
+include ':app'
