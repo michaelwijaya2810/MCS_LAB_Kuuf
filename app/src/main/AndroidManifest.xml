@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mcs_project.mcs_lab_kuuf_project">
-
+    
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MCS_LAB_Kuuf_Project">
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ProductDetailActivity" />
+        <activity android:name=".StoreActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

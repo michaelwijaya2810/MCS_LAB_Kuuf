@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     TextView ETUsername, ETPassword,TVError;
     Button BTNLogin, BTNRegister;
     UsersDB usersDB;
-
+    public static final String SEND_KEY = "com.example.application.MCS_LAB_Kuuf_Project.SEND_KEY";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +37,11 @@ public class MainActivity extends AppCompatActivity {
                 if(checkusername() && checkpassword()){
                     String username = ETUsername.getText().toString();
                     String password = ETPassword.getText().toString();
+                    Integer id = usersDB.getId(username);
                     if(usersDB.checkUsers(username, password)){
-                        TVError.setText("correct");
+                        Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                        intent.putExtra(SEND_KEY,id);
+                        startActivity(intent);
                         //open mainactivity
                     }
                     else{

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductDetailActivity">
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/tvMinPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvProductName"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"
+        />
+
+    <TextView
+        android:id="@+id/tvMaxPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMinPlayer"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"
+        />
+
+    <TextView
+        android:id="@+id/tvProductPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMaxPlayer"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"
+        />
+
+    <Button
+        android:id="@+id/btnMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open map"
+        android:ems="10"
+        android:layout_below="@+id/tvProductPrice"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/btnBuy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buy"
+        android:ems="10"
+        android:layout_below="@+id/btnMap"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>

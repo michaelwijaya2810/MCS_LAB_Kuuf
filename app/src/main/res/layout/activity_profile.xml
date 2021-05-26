@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        android:textSize="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp"
+        />
+
+    <TextView
+        android:id="@+id/tvProfileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_below="@id/tvTitle"
+        />
+
+    <TextView
+        android:id="@+id/tvProfileGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_below="@id/tvProfileName" />
+
+    <TextView
+        android:id="@+id/tvProfilePhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_below="@id/tvProfileGender"/>
+
+    <TextView
+        android:id="@+id/tvProfileWallet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_below="@id/tvProfilePhone" />
+
+    <TextView
+        android:id="@+id/tvProfileDOB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_below="@id/tvProfileWallet" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="360dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/black"
+        android:backgroundTint="#000000"
+        android:visibility="visible"
+        android:layout_below="@id/tvProfileDOB"
+        android:layout_centerInParent="true"
+        />
+
+    <TextView
+        android:id="@+id/tvProfileTopUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TOP UP "
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_below="@id/divider"
+        android:layout_marginTop="24dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <RadioGroup
+        android:id="@+id/rgTopUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_below="@id/tvProfileTopUp">
+
+        <RadioButton
+            android:id="@+id/rb250"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="250000"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/rb500"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500000"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/rb1000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1000000"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/txtConfirmTopUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Input Password"
+        android:inputType="textPassword"
+        android:layout_below="@id/rgTopUp"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="Confirm top up"
+        android:ems="10"
+        android:textColor="@color/white"
+        android:layout_below="@id/txtConfirmTopUp"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
