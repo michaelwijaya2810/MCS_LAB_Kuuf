@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
                     String username = ETUsername.getText().toString();
                     String password = ETPassword.getText().toString();
                     if(usersDB.checkUsers(username, password)){
-                        TVError.setText("correct");
                         //open mainactivity
                     }
                     else{
