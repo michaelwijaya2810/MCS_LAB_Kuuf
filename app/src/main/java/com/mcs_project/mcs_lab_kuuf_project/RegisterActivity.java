@@ -2,6 +2,8 @@ package com.mcs_project.mcs_lab_kuuf_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,16 +15,19 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import android.os.Bundle;
+
+import java.util.Calendar;
 import java.util.Date;
 
 public class RegisterActivity extends AppCompatActivity {
     TextView ETUsername, ETPassword, ETPhone, ETConfirmationPass, TVerror;
-    Button BTNRegister;
-    DatePicker datebirth;
+    Button BTNRegister,BTNDatebirth;
+    DatePickerDialog datebirth;
     RadioGroup radiogroupgender;
     RadioButton radioButtongender;
     CheckBox checkagreement;
     UsersDB usersDB;
+    String date = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +38,12 @@ public class RegisterActivity extends AppCompatActivity {
         ETPhone = findViewById(R.id.edittextphone);
         ETConfirmationPass = findViewById(R.id.edittextrepassword);
         BTNRegister = findViewById(R.id.regbtnreg);
-        datebirth = findViewById(R.id.datebirth);
+        BTNDatebirth = findViewById(R.id.datebirthbutton);
         radiogroupgender = findViewById(R.id.radiogroup);
         checkagreement = findViewById(R.id.checkboxagreement);
         TVerror = findViewById(R.id.texterrors);
         usersDB = new UsersDB(this);
+        initDatePicker();
 
         BTNRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,8 +54,8 @@ public class RegisterActivity extends AppCompatActivity {
                     user.password = ETPassword.getText().toString();
                     user.phone = ETPhone.getText().toString();
                     user.gender = radioButtongender.getText().toString();
-                    user.dateOfBirth = datebirth.getDayOfMonth() + "-" + (datebirth.getMonth() + 1) + "-" + datebirth.getYear();
-                    TVerror.setText("Register Succeed");
+                    user.dateOfBirth = date;
+                    //TVerror.setText("Register Succeed");
                     usersDB.insertUsers(user);
                     OpenRegisterActivity();
                 }
@@ -62,6 +68,64 @@ public class RegisterActivity extends AppCompatActivity {
                 radioButtongender = findViewById(id);
             }
         });
+    }
+
+    private void initDatePicker() {
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                String monthString = null;
+                if(month == 1){
+                    monthString="January";
+                }
+                if(month == 2){
+                    monthString="February";
+                }
+                if(month == 3){
+                    monthString="March";
+                }
+                if(month == 4){
+                    monthString="April";
+                }
+                if(month == 5){
+                    monthString="May";
+                }
+                if(month == 6){
+                    monthString="June";
+                }
+                if(month == 7){
+                    monthString="July";
+                }
+                if(month == 8){
+                    monthString="August";
+                }
+                if(month == 9){
+                    monthString="September";
+                }
+                if(month == 10){
+                    monthString="October";
+                }
+                if(month == 11){
+                    monthString="Nov";
+                }
+                if(month == 12){
+                    monthString="Des";
+                }
+                date = day + "-" + monthString + "-" + year;
+                BTNDatebirth.setText(date);
+            }
+        };
+
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+        int style = AlertDialog.THEME_HOLO_LIGHT;
+
+        datebirth = new DatePickerDialog(this, style, dateSetListener, year, month, day);
+        datebirth.getDatePicker().setMaxDate(System.currentTimeMillis());
     }
 
     private void OpenRegisterActivity() {
@@ -149,10 +213,9 @@ public class RegisterActivity extends AppCompatActivity {
 
     private boolean checkDateOfBirth()
     {
-        Date dateOfBirth = new Date(datebirth.getYear(), datebirth.getMonth(), datebirth.getDayOfMonth());
-        if (!datebirth.isEnabled())
+        if (date.isEmpty())
         {
-            TVerror.setText("DOB cannot be in the future");
+            TVerror.setText("DOB cannot be empty");
             return false;
         }
         else{
@@ -224,5 +287,9 @@ public class RegisterActivity extends AppCompatActivity {
         else{
             return true;
         }
+    }
+
+    public void opendatepicker(View view) {
+        datebirth.show();
     }
 }

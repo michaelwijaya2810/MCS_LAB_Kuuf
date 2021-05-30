@@ -59,6 +59,7 @@
                 android:id="@+id/edittextpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textPassword"
                 android:hint="Password"
                 android:textAlignment="center"
                 android:textSize="18sp" />
@@ -80,6 +81,7 @@
                 android:id="@+id/edittextphone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:hint="Phone Number"
                 android:textAlignment="center"
                 android:textSize="18sp" />
@@ -101,25 +103,37 @@
                 android:id="@+id/edittextrepassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textPassword"
                 android:hint="Confirmation Password"
                 android:textAlignment="center"
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text=" Date of Birth"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+            android:orientation="horizontal">
 
-        <DatePicker
-            android:id="@+id/datebirth"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center">
-        </DatePicker>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text=" Date of Birth"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/datebirthbutton"
+                android:text="Select your DOB"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="center"
+                style="?android:spinnerItemStyle"
+                android:onClick="opendatepicker"/>
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -173,25 +187,29 @@
             android:text="I agree terms and conditions"
             android:layout_gravity="center"/>
 
-        <TextView
-            android:id="@+id/texterrors"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="#FF0000"
-            android:textSize="16sp" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/regbtnreg"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/custombutton"
-            android:text="Register"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="10dp"/>
+            <TextView
+                android:id="@+id/texterrors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#FF0000"
+                android:textSize="16sp" />
 
-
+            <Button
+                android:id="@+id/regbtnreg"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/custombutton"
+                android:text="Register"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="10dp"/>
+        </LinearLayout>
 
     </LinearLayout>
 
