@@ -60,6 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
+                android:inputType="textPassword"
                 android:textAlignment="center"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -81,6 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Phone Number"
+                android:inputType="number"
                 android:textAlignment="center"
                 android:textSize="18sp" />
 
@@ -102,24 +104,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Confirmation Password"
+                android:inputType="textPassword"
                 android:textAlignment="center"
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text=" Date of Birth"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp" />
+            android:orientation="horizontal">
 
-        <DatePicker
-            android:id="@+id/datebirth"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center">
-        </DatePicker>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text=" Date of Birth"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/datebirthbutton"
+                android:text="Select your DOB"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="50dp"
+                style="?android:spinnerItemStyle"
+                android:onClick="opendatepicker"/>
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
