@@ -3,7 +3,6 @@ package com.mcs_project.mcs_lab_kuuf_project;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -15,7 +14,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
     //2 new Double variables, Latitude and Longitude
-//    private Double latitude, longitude;
+    private Double latitude, longitude;
+    //also a String for product name
+    private String productName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,23 +24,28 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         setContentView(R.layout.activity_map);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        assert mapFragment != null;
         mapFragment.getMapAsync(this);
 
         //get latitude & longitude from intent, probably
-//        latitude = getIntent().getDoubleExtra("latitude", 0);
-//        longitude = getIntent().getDoubleExtra("longitude", 0);
+        latitude = getIntent().getDoubleExtra("latitude", 0);
+        longitude = getIntent().getDoubleExtra("longitude", 0);
+        productName = getIntent().getExtras().getString("productName", "null");
     }
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         //use latitude & longitude variables to make new LatLng var
-//        LatLng productPos = new LatLng(latitude, longitude);
+        LatLng productPos = new LatLng(latitude, longitude);
 
         //Exploding Kitten for example
-        LatLng productPos = new LatLng(-6.912035, 106.265139);
+//        LatLng productPos = new LatLng(-6.912035, 106.265139);
 
         //Place a new marker on said coordinates
-        googleMap.addMarker(new MarkerOptions().position(productPos).title("Product Location"));
+        googleMap.addMarker(new MarkerOptions().position(productPos).title(
+                productName + " ("
+                        + latitude.toString() + ", " + longitude.toString()
+                        + ")"));
         //move the maps camera to marker
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(productPos));
     }

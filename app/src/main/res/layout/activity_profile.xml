@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,102 +8,110 @@
 
     <TextView
         android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Profile"
-        android:textSize="30dp"
-        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textSize="30sp"
         android:layout_margin="30dp"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvProfileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:text="Username: template_username"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:layout_below="@id/tvTitle"
-        />
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvProfileGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Gender: template_gender"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:layout_below="@id/tvProfileName" />
+        app:layout_constraintTop_toBottomOf="@id/tvProfileName"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvProfilePhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Phone: template_phone_number"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:layout_below="@id/tvProfileGender"/>
+        app:layout_constraintTop_toBottomOf="@id/tvProfileGender"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvProfileWallet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Wallet: template_wallet_nominal"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:layout_below="@id/tvProfilePhone" />
+        app:layout_constraintTop_toBottomOf="@id/tvProfilePhone"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvProfileDOB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Date of Birth: template_dob"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:layout_below="@id/tvProfileWallet" />
+        app:layout_constraintTop_toBottomOf="@id/tvProfileWallet"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <View
         android:id="@+id/divider"
         android:layout_width="360dp"
         android:layout_height="1dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginVertical="20dp"
         android:background="@color/black"
         android:backgroundTint="#000000"
         android:visibility="visible"
-        android:layout_below="@id/tvProfileDOB"
-        android:layout_centerInParent="true"
-        />
+        app:layout_constraintTop_toBottomOf="@id/tvProfileDOB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/tvProfileTopUp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TOP UP "
+        android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_below="@id/divider"
-        android:layout_marginTop="24dp"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/divider" />
 
     <RadioGroup
         android:id="@+id/rgTopUp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_below="@id/tvProfileTopUp">
+        android:layout_marginHorizontal="30dp"
+        app:layout_constraintTop_toBottomOf="@id/tvProfileTopUp">
 
         <RadioButton
             android:id="@+id/rb250"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="250000"
+            android:text="Rp250000"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -111,7 +119,7 @@
             android:id="@+id/rb500"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="500000"
+            android:text="Rp500000"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -119,30 +127,28 @@
             android:id="@+id/rb1000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1000000"
+            android:text="Rp1000000"
             android:textColor="@color/black"
             android:textStyle="bold" />
     </RadioGroup>
 
     <EditText
         android:id="@+id/txtConfirmTopUp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:hint="Input Password"
         android:inputType="textPassword"
-        android:layout_below="@id/rgTopUp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_marginHorizontal="30dp"
+        app:layout_constraintTop_toBottomOf="@id/rgTopUp" />
 
     <Button
         android:id="@+id/btnConfirm"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="10dp"
         android:text="Confirm top up"
-        android:ems="10"
         android:textColor="@color/white"
-        android:layout_below="@id/txtConfirmTopUp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_marginHorizontal="30dp"
+        app:layout_constraintTop_toBottomOf="@id/txtConfirmTopUp" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

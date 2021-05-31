@@ -4,13 +4,13 @@ public class Transactions {
     int transId;
     int userId;
     int productId;
-    String transcationDate;
+    String transactionDate;
 
     public Transactions(int transId, int userId, int productId, String transcationDate) {
         this.transId = transId;
         this.userId = userId;
         this.productId = productId;
-        this.transcationDate = transcationDate;
+        this.transactionDate = transcationDate;
     }
 
     public int getTransId() {
@@ -38,10 +38,10 @@ public class Transactions {
     }
 
     public String getTranscationDate() {
-        return transcationDate;
+        return transactionDate;
     }
 
     public void setTranscationDate(String transcationDate) {
-        this.transcationDate = transcationDate;
+        this.transactionDate = transcationDate;
     }
 }

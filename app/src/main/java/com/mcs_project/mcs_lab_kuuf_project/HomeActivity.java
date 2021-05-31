@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.Vector;
@@ -50,9 +51,9 @@ public class HomeActivity extends AppCompatActivity {
         tvWallet = findViewById(R.id.tvWallet);
         tvWallet.setText(balance);
         if(vecTrans.isEmpty()){
-            tvEmpty.setText("Currently, you have no transaction");
+            tvEmpty.setVisibility(View.VISIBLE);
         }else{
-            tvEmpty.setText(null);
+            tvEmpty.setVisibility(View.GONE);
         }
 
         //GET RECYCLER VIEW DATA

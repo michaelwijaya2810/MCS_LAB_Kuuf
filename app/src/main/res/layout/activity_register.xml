@@ -5,212 +5,161 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgrounds"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
     tools:context=".RegisterActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/backgrounds"
-        android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Register Page"
+        android:textColor="#000000"
+        android:textSize="26sp" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edittextusernamelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="40dp"
+        android:hint="Username"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="#FFFFFF"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittextusername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edittextphonelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:hint="Phone Number"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="#FFFFFF"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittextphone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:inputType="phone" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edittextpasswordlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:hint="Password"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="#FFFFFF"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittextpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edittextrepasswordlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:hint="Confirm Password"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="#FFFFFF"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittextrepassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/datebirthbuttonlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:hint="Date of Birth"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="#FFFFFF"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/datebirthbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:inputType="date"
+            android:onClick="opendatepicker" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp" >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="Register Page"
-            android:textColor="#000000"
-            android:textSize="26sp" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text=" Input new Username"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp" />
+            android:text=" Gender"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/edittextusername"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Username"
-                android:textAlignment="center"
-                android:textSize="18sp" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text=" Input new Password"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/edittextpassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="Password"
-                android:textAlignment="center"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text=" Input Phone Number"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/edittextphone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:hint="Phone Number"
-                android:textAlignment="center"
-                android:textSize="18sp" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text=" Confirm your Password"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/edittextrepassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="Confirmation Password"
-                android:textAlignment="center"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text=" Date of Birth"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/datebirthbutton"
-                android:text="Select your DOB"
-                android:layout_width="200dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="40dp"
-                android:layout_gravity="center"
-                style="?android:spinnerItemStyle"
-                android:onClick="opendatepicker"/>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text=" Gender"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"/>
-
-            <RadioGroup
-                android:id="@+id/radiogroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-
-
-                >
-                <RadioButton
-                    android:id="@+id/RadioMale"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Male"
-                    android:textSize="18sp"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginLeft="70dp"/>
-
-                <RadioButton
-                    android:id="@+id/RadioFemale"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Female"
-                    android:textSize="18sp"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginLeft="70dp"/>
-
-            </RadioGroup>
-        </LinearLayout>
-
-
-
-        <CheckBox
-            android:id="@+id/checkboxagreement"
+        <RadioButton
+            android:id="@+id/RadioMale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="I agree terms and conditions"
-            android:layout_gravity="center"/>
+            android:text="Male"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginStart="40dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <RadioButton
+            android:id="@+id/RadioFemale"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:text="Female"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginStart="40dp" />
+    </RadioGroup>
 
-            <TextView
-                android:id="@+id/texterrors"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="#FF0000"
-                android:textSize="16sp" />
+    <CheckBox
+        android:id="@+id/checkboxagreement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I agree with Kuuf's terms and conditions" />
 
-            <Button
-                android:id="@+id/regbtnreg"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/custombutton"
-                android:text="Register"
-                android:textColor="#FFFFFF"
-                android:layout_marginTop="10dp"/>
-        </LinearLayout>
-
-    </LinearLayout>
-
+    <Button
+        android:id="@+id/regbtnreg"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custombutton"
+        android:text="Register"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="10dp" />
 </LinearLayout>
