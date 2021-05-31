@@ -6,11 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    TextView ETUsername, ETPassword,TVError;
-    Button BTNLogin, BTNRegister;
+    EditText ETUsername, ETPassword;
+    Button BTNLogin;
+    TextView BTNRegister;
     UsersDB usersDB;
     public static final String SEND_KEY = "com.example.application.MCS_LAB_Kuuf_Project.SEND_KEY";
     @Override
@@ -21,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         ETPassword = findViewById(R.id.edittextpasswordlogin);
         BTNLogin = findViewById(R.id.btnlogin);
         BTNRegister = findViewById(R.id.btnregister);
-        TVError = findViewById(R.id.txterrormessage);
         usersDB = new UsersDB(this);
 
         BTNRegister.setOnClickListener(new View.OnClickListener() {
@@ -41,11 +43,14 @@ public class MainActivity extends AppCompatActivity {
                     if(usersDB.checkUsers(username, password)){
                         Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
                         intent.putExtra(SEND_KEY,id);
+                        Toast.makeText(MainActivity.this, "Login Successful! Welcome, " + username, Toast.LENGTH_SHORT).show();
                         startActivity(intent);
                         //open mainactivity
                     }
                     else{
-                        TVError.setText("Username or Password are wrong");
+                        Toast.makeText(MainActivity.this, "Login failed, please check your credentials!", Toast.LENGTH_SHORT).show();
+                        ETUsername.setError("Username is wrong!");
+                        ETPassword.setError("Password does not match!");
                     }
 
                 }
@@ -61,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Boolean checkusername(){
         if(ETUsername.getText().toString().isEmpty()){
-            TVError.setText("Username cannot be empty");
+            ETUsername.setError("Username cannot be empty");
             return false;
         }
         else{
@@ -71,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Boolean checkpassword(){
         if(ETPassword.getText().toString().isEmpty()){
-            TVError.setText("Password cannot be empty");
+            ETPassword.setError("Password cannot be empty");
             return false;
         }
         else{

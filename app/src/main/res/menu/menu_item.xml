@@ -3,21 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/homeMenu"
-        android:title="Home"
-        app:showAsAction="never"/>
+        android:title="Home" />
 
     <item
         android:id="@+id/storeMenu"
-        android:title="Store"
-        app:showAsAction="never"/>
+        android:title="Store" />
 
     <item
         android:id="@+id/profileMenu"
-        android:title="Profile"
-        app:showAsAction="never" />
+        android:title="Profile" />
 
     <item
         android:id="@+id/logoutMenu"
-        android:title="Logout"
-        app:showAsAction="never"/>
+        android:title="Logout" />
 </menu>

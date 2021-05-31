@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,65 +8,68 @@
 
     <TextView
         android:id="@+id/tvProductName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_margin="30dp"
-        android:textSize="30dp"
+        android:text="template_product_name"
+        android:textAlignment="center"
+        android:textSize="30sp"
         android:textStyle="bold"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvMinPlayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvProductName"
-        android:textSize="20dp"
+        android:text="0"
+        android:textSize="20sp"
         android:textColor="@color/black"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="16dp"
-        />
+        android:layout_marginStart="30dp"
+        app:layout_constraintTop_toBottomOf="@id/tvProductName"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvMaxPlayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvMinPlayer"
-        android:textSize="20dp"
+        android:text="999"
+        android:textSize="20sp"
         android:textColor="@color/black"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="16dp"
-        />
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toBottomOf="@id/tvProductName"
+        app:layout_constraintStart_toEndOf="@id/tvMinPlayer" />
 
     <TextView
         android:id="@+id/tvProductPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvMaxPlayer"
-        android:textSize="20dp"
+        android:text="template_product_price"
+        android:textSize="24sp"
         android:textColor="@color/black"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="16dp"
-        />
+        android:layout_marginStart="30dp"
+        app:layout_constraintTop_toBottomOf="@id/tvMaxPlayer"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnMap"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Open map"
-        android:ems="10"
-        android:layout_below="@+id/tvProductPrice"
         android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_marginHorizontal="30dp"
+        app:layout_constraintTop_toBottomOf="@id/tvProductPrice" />
 
     <Button
         android:id="@+id/btnBuy"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Buy"
-        android:ems="10"
         android:layout_below="@+id/btnMap"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="30dp"
+        app:layout_constraintTop_toBottomOf="@id/btnMap" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -90,5 +90,19 @@ public class ProductDetailActivity extends AppCompatActivity {
             }
         });
 
+        //putExtra the product's name, geocoordinates to a new Intent, and startActivity to MapActivity.class
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMap = new Intent(ProductDetailActivity.this, MapActivity.class);
+
+                intentMap.putExtra("latitude", product.getLatitude());
+                intentMap.putExtra("longitude", product.getLongitude());
+                intentMap.putExtra("productName", product.getProductName());
+
+                startActivity(intentMap);
+                //not using finish() to prevent data loss when going back to ProductDetailActivity, maybe
+            }
+        });
     }
 }

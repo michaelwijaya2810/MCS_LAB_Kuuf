@@ -44,9 +44,9 @@ public class StoreActivity extends AppCompatActivity {
 
         if(vecProduct.isEmpty()) {
             jsonParse();
-//            Intent refresh = getIntent();
-//            finish();
-//            startActivity(refresh);
+            Intent refresh = getIntent();
+            finish();
+            startActivity(refresh);
         }
 
     }
