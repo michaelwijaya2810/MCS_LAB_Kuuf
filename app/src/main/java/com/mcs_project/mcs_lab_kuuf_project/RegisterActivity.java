@@ -23,7 +23,8 @@ import java.util.Date;
 
 public class RegisterActivity extends AppCompatActivity {
     EditText ETUsername, ETPassword, ETPhone, ETConfirmationPass;
-    Button BTNRegister,BTNDatebirth;
+    TextView BTNDatebirth;
+    Button BTNRegister;
     DatePickerDialog datebirth;
     RadioGroup radiogroupgender;
     RadioButton radioButtongender;
