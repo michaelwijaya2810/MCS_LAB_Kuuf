@@ -6,10 +6,6 @@ plugins {
 android {
     compileSdkVersion 30
 
-    def localProperties = new Properties()
-    localProperties.load(new FileInputStream(rootProject.file("local.properties")))
-    localProperties['MAPS_API_KEY']
-
     defaultConfig {
         applicationId "com.mcs_project.mcs_lab_kuuf_project"
         minSdkVersion 23
@@ -19,17 +15,10 @@ android {
     }
 
     buildTypes {
-        debug {
-            resValue("string", "google_maps_key", localProperties['MAPS_API_KEY'])
-        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
