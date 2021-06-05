@@ -54,11 +54,6 @@ public class ProductDetailActivity extends AppCompatActivity {
         tvMaxPlayer.setText("Maximal Player: " + product.getMaxPlayer());
         tvProductPrice.setText("Price: " + product.getPrice());
 
-        sendSmsPermission = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.SEND_SMS);
-        if(sendSmsPermission != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(ProductDetailActivity.this,new String[]{Manifest.permission.SEND_SMS}, 1);
-        }
-
         btnBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
