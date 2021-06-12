@@ -50,19 +50,14 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             @Override
             public void onClick(View view) {
                 int id = transVec.get(position).getTransId();
-                int userId = transVec.get(position).getUserId();
-                Log.i("tesData","size: " + transVec.size());
                 transVec.remove(position);
-                Log.i("tesData","size after removed: " + transVec.size());
-                removed = 1;
 
                 TransactionsDB transactionsDB = new TransactionsDB(ctx);
                 transactionsDB.deleteTransaction(id);
 
                 Toast.makeText(ctx, "Transaction Removed", Toast.LENGTH_LONG).show();
-                Intent refresh = new Intent(ctx, HomeActivity.class);
-                refresh.putExtra(MainActivity.SEND_KEY, userId);
-                ctx.startActivity(refresh);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position,transVec.size());
             }
         });
     }

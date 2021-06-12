@@ -17,11 +17,26 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Vector;
 
 public class HomeActivity extends AppCompatActivity {
     Users user;
     Vector<Transactions> vecTrans = new Vector<>();
+    Vector<Product> vecProduct = new Vector<>();
+    DBHelper dbHelper;
+    ProductsDB productsDB;
+    RequestQueue mQueue;
     TextView tvGreet, tvWallet, tvEmpty;
     RecyclerView rvTrans;
     int userId;
@@ -34,15 +49,25 @@ public class HomeActivity extends AppCompatActivity {
 
         getPermission();
 
+        //GET USER DATA FROM LOGIN ACTIVITY
         Intent intent = getIntent();
         userId = intent.getIntExtra(SEND_KEY,0);
-
         UsersDB db = new UsersDB(this);
         user = db.getUserDetail(userId);
 
         tvGreet = findViewById(R.id.tvGreet);
         tvGreet.setText("Welcome " + user.getUsername());
         tvEmpty = findViewById(R.id.tvEmpty);
+
+        //INSERT PRODUCT TO DB
+        mQueue = Volley.newRequestQueue(this);
+        dbHelper = new DBHelper(this);
+        productsDB = new ProductsDB(dbHelper);
+        vecProduct = productsDB.getProducts();
+        if(vecProduct.isEmpty()) {
+            jsonParse();
+        }
+
     }
 
     @Override
@@ -65,12 +90,6 @@ public class HomeActivity extends AppCompatActivity {
         //GET RECYCLER VIEW DATA
         getRvData();
 
-        //REFRESH PAGE
-        if(TransactionAdapter.removed == 1){
-            TransactionAdapter.removed = 0;
-            finish();
-            overridePendingTransition(0,0);
-        }
     }
 
     public void getRvData(){
@@ -134,5 +153,37 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    public void jsonParse(){
+        String url = "https://api.jsonbin.io/b/5eb51c6947a2266b1474d701/7";
 
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray jsonArray = response.getJSONArray("items");
+                            for(int i=0 ; i<jsonArray.length() ; i++){
+                                JSONObject products = jsonArray.getJSONObject(i);
+                                String productName = products.getString("name");
+                                int minPlayer = products.getInt("min_player");
+                                int maxPlayer = products.getInt("max_player");
+                                long price = products.getLong("price");
+                                String createdAt = products.getString("created_at");
+                                double latitude = Double.parseDouble(products.getString("latitude"));
+                                double longitude = Double.parseDouble(products.getString("longitude"));
+                                productsDB.insertProduct(productName, minPlayer, maxPlayer, price, createdAt, latitude, longitude);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        mQueue.add(request);
+    }
 }
