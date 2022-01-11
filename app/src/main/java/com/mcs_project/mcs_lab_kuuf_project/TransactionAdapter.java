@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Vector;
 
-public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.ViewHolder> {
+public class    TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.ViewHolder> {
 
     Context ctx;
     Vector<Transactions> transVec = new Vector<>();
